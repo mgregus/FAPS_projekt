@@ -1,0 +1,119 @@
+
+
+
+VKLADANIE
+stegano-lsb hide -i 20210405_121806.png -o vlozene.png -m "vlozena message"
+
+stegano-lsb hide -i 20210405_121806.png -o vlozene.png -f ../vkladane_spravy/shakespeare.txt
+
+
+REVEALING
+ak file
+stegano-lsb reveal -i vlozene.png -o file.txt
+
+len message
+stegano-lsb reveal -i vlozene.png
+
+
+ANALYZA LSB enhacement
+
+stegano-steganalysis-parity -i vlozene.png -o analysis.png
+
+
+VLOZENIE S generatorom
+
+stegano-lsb-set hide -i biela.png  --generator triangular_numbers -f ../vkladane_spravy_skratenaalice.txt -o biela_ms_tr.png
+
+Vyber s generatorom(pre vyber ak bol pouzity generator je nutne znalost pouziteho generatora)
+
+stegano-lsb-set reveal --generator eratosthenes -i biela_sa_er.png -o file.txt
+
+List vsetkych generatorov 
+
+stegano-lsb-set list-generators
+
+# stegano-lsb-set list-generators
+Generator id:
+    LFSR
+Desciption:
+    LFSR generator of the given size
+    https://en.wikipedia.org/wiki/Linear-feedback_shift_register
+    
+Generator id:
+    ackermann
+Desciption:
+    Ackermann encapsulated in a generator.
+    
+Generator id:
+    ackermann_fast
+Desciption:
+    Ackermann number.
+    
+Generator id:
+    ackermann_naive
+Desciption:
+    Naive Ackermann encapsulated in a generator
+    
+Generator id:
+    ackermann_slow
+Desciption:
+    Ackermann number.
+    
+Generator id:
+    carmichael
+Desciption:
+    Composite numbers n such that a^(n-1) == 1 (mod n) for every a coprime
+    to n.
+    https://oeis.org/A002997
+    
+Generator id:
+    composite
+Desciption:
+    Generate the composite numbers using the sieve of Eratosthenes.
+    https://oeis.org/A002808
+    
+Generator id:
+    eratosthenes
+Desciption:
+    Generate the prime numbers with the sieve of Eratosthenes.
+    https://oeis.org/A000040
+    
+Generator id:
+    fermat
+Desciption:
+    Generate the n-th Fermat Number.
+    https://oeis.org/A000215
+    
+Generator id:
+    fibonacci
+Desciption:
+    Generate the sequence of Fibonacci.
+    https://oeis.org/A000045
+    
+Generator id:
+    identity
+Desciption:
+    f(x) = x
+    
+Generator id:
+    log_gen
+Desciption:
+    Logarithmic generator.
+    
+Generator id:
+    mersenne
+Desciption:
+    Generate 2^p - 1, where p is prime.
+    https://oeis.org/A001348
+    
+Generator id:
+    triangular_numbers
+Desciption:
+    Triangular numbers: a(n) = C(n+1,2) = n(n+1)/2 = 0+1+2+...+n.
+    http://oeis.org/A000217
+
+
+
+DOBRA DOKUMENTACIA
+https://stegano.readthedocs.io/_/downloads/en/latest/pdf/
+
